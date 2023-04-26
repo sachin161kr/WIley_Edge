@@ -17,10 +17,20 @@ public class StudentRecordOutput {
 	}
 	
 	public void writer(Student student) throws IOException {
+		System.out.println(student.getName());
 		dataOutput.writeUTF(student.getName());
-		dataOutput.writeBoolean(student.getGender());
-		dataOutput.writeInt(student.getAge());
-		dataOutput.writeFloat(student.getGrade());
+		//dataOutput.writeBytes(student.getGender())
+		//dataOutput.writeBoolean(student.getGender());;
+//		if(student.getGender()==true)
+//		{
+//			dataOutput.writeBytes("Gender : B ");
+//		}
+//		else
+//		{
+//			dataOutput.writeBytes("Gender : F ");
+//		}
+//		dataOutput.writeInt(student.getAge());
+//		dataOutput.writeChar(student.getGrade());
 	}
 	
 	public void save() throws IOException {
@@ -38,10 +48,10 @@ public class StudentRecordOutput {
 		
 		List<Student> listStudent = new ArrayList<>(); 
 		
-		listStudent.add(new Student("venkat", true, 28, 90.1f));
-		listStudent.add(new Student("Anmol", true, 21, 81.5f));
-		listStudent.add(new Student("Shreya", false, 18, 91.1f));
-		listStudent.add(new Student("Rishav", true, 19, 95.1f));
+		listStudent.add(new Student("venkat", true, 28, 'A'));
+//		listStudent.add(new Student("Anmol", true, 21, 'B'));
+//		listStudent.add(new Student("Shreya", false, 18, 'A'));
+//		listStudent.add(new Student("Rishav", true, 19, 'C'));
 		
 		try {
 			StudentRecordOutput outputWriter = new StudentRecordOutput(outputfile);

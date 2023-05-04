@@ -6,7 +6,7 @@ public class SetClass {
 
 	public static void main(String[] args) {
 		
-		SortedSet<Integer> st = new TreeSet<>();
+		TreeSet<Integer> st = new TreeSet<>();
 		
 		
 		st.add(-1);

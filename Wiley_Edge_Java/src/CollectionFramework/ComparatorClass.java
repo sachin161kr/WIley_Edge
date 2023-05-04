@@ -2,29 +2,72 @@ package CollectionFramework;
 
 import java.util.*;
 
-public class ComparatorClass {
+class StudentSort implements Comparable<StudentSort>
+{
+	String name;
+	int marks;
 	
-	public boolean comp(Integer Obj1, Integer Obj2)
-	{
-		if(Obj1 < Obj2)
+	public StudentSort(String name,int marks)
+	{ 
+		 this.name = name;
+		 this.marks = marks;
+	}
+
+	@Override
+	public int compareTo(StudentSort o) {
+		
+		if(this.marks == o.marks)
 		{
-			return true;
+			  if(this.name.compareTo(o.name)>0)
+			  {
+				   return 1;
+			  }
+			  else if(this.name.compareTo(o.name)<0)
+			  {
+				  return -1;
+			  }
+			  
+			  return 0;
+		}
+		else if(this.marks < o.marks)
+		{
+			return 1;
 		}
 		
-		return false;
-
+		return -1;
+		
 	}
+	
+}
+
+class Sort implements Comparator<Integer>
+{
+
+	@Override
+	public int compare(Integer o1, Integer o2) {
+		
+		if(o1 < o2) return -1;
+		if(o2 < o1) return 1;
+		
+		return 0;
+		
+	}
+	
+}
+
+public class ComparatorClass {
 
 	public static void main(String[] args) {
 		
-		TreeSet<Integer> ts = new TreeSet<>();
+		ArrayList<StudentSort> arr = new ArrayList<>();
 		
-		ts.add(3);
+		arr.add(new StudentSort("Sachin",21));
+		arr.add(new StudentSort("Kritika",21));
+		arr.add(new StudentSort("Monu",19));
 		
-		ts.add(4);
+		Collections.sort(arr);
 		
-		System.out.println(ts);
-
+		arr.forEach(e -> System.out.println(e.name+" has "+e.marks));
 	}
 
 }

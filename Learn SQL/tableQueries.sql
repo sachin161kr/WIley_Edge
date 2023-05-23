@@ -160,3 +160,9 @@ SELECT * FROM products;
 ALTER TABLE products DROP COLUMN totalStockPrice;
 ALTER TABLE products ADD COLUMN totalStockPrice BIGINT GENERATED ALWAYS AS (quantityInStock*buyPrice) STORED;
 
+
+
+
+SELECT customerName, paymentDate,amount
+FROM customers
+INNER JOIN Payments using (customerNumber);

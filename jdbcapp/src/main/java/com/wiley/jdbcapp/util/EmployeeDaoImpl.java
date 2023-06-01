@@ -94,22 +94,7 @@ public  class EmployeeDaoImpl implements EmployeeDao{
 
 public void updateEmpNameById(int id, String name) {
 	// TODO Auto-generated method stub
-	 conn = DBConnection.createDBConnection();
-     String query = "update employee set name = ? where id = ?";
-     try {
-         PreparedStatement ps = conn.prepareStatement(query);
-         ps.setString(1, name);
-         ps.setInt(2, id);
-         
-         int count = ps.executeUpdate();
-         if(count > 0) {
-             System.out.println("Employee updated successfully");
-         } else {
-             System.out.println("Employee updation failed");
-         }
-     } catch (Exception e) {
-         e.printStackTrace();
-     }
+	 
 	
 }
 
